@@ -1,8 +1,8 @@
 import os
 import logging
 
-from commands import start
-from messages import forward
+from handlers.commands import start
+from handlers.messages import forward
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, filters
 
 
