@@ -28,14 +28,14 @@ async def forward(update: Update, context: ContextTypes) -> None:
 
         await forwarded_message.pin()
 
-        await update.effective_message.reply_markdown_v2(
+        await update.effective_message.reply_html(
             text=constants.SUCCESS_MESSAGE,
             quote=True,
         )
     except Exception as e:
         print(e)
 
-        await update.effective_message.reply_markdown_v2(
+        await update.effective_message.reply_html(
             text=constants.FAILURE_MESSAGE,
             quote=True,
         )
