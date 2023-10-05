@@ -1,13 +1,16 @@
 import os
 import logging
+from dotenv import load_dotenv
 
 from handlers.commands import start
 from handlers.messages import forward
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, filters
 
 
-TOKEN = os.getenv("TOKEN")
-GROUP_ID = os.getenv("GROUP_ID")
+load_dotenv()
+
+TOKEN = os.environ.get('TOKEN')
+GROUP_ID = os.environ.get('GROUP_ID')
 
 
 # Enable logging

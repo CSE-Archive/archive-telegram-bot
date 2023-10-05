@@ -1,7 +1,9 @@
 from telegram import Update
 from telegram.ext import ContextTypes
-from telegram.helpers import escape_markdown
 from telegram.constants import ParseMode
+from telegram.helpers import escape_markdown
+
+from handlers import constants
 
 
 async def forward(update: Update, context: ContextTypes) -> None:
@@ -27,13 +29,13 @@ async def forward(update: Update, context: ContextTypes) -> None:
         await forwarded_message.pin()
 
         await update.effective_message.reply_markdown_v2(
-            text="_✓ ارسال شد_",
+            text=constants.SUCCESS_MESSAGE,
             quote=True,
         )
     except Exception as e:
         print(e)
 
         await update.effective_message.reply_markdown_v2(
-            text=f"_✗ ارسال نشد\. متن خطا:_\n{escape_markdown(str(e), version=2)}",
+            text=constants.FAILURE_MESSAGE,
             quote=True,
         )
